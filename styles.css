@@ -76,6 +76,11 @@ img {
 .dark-text {
     color: #af45edff;
 }
+
+.light-text {
+    color: #e5e9ecff;
+}
+
 /*
     --azure-web: #eafdf8ff;
     --antiflash-white: ;

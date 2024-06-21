@@ -55,6 +55,7 @@ let createCard = function(data) {
 
 let buttons = document.querySelectorAll(".button");
 let cards_list = document.querySelector(".cards");
+let movies_button = document.getElementById('movies-button');
 
 for (let card of cards_data) {
     cards_list.appendChild(createCard(card));
@@ -66,6 +67,15 @@ for (let button of buttons) {
     }
     button.onmouseout = function() {
         button.classList.remove("dark-text");
+    }
+    button.onclick = function() {
+        if (button == movies_button) {
+            cards_list.style.display = 'grid';
+        }
+        else {
+            console.log(button);
+            cards_list.style.display = 'none';
+        }
     }
 }
 
