@@ -18,14 +18,15 @@ body {
 
 p {
     margin: 10px;
-    padding: 10px;
+    padding: 5px;
     color: var(--dark);
 }
 
 header {
     display: grid;
     width: 100%;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
+    row-gap: 5px;
     background-color: var(--dark);
     color: var(--thistle);
     padding: 10px;
@@ -37,25 +38,16 @@ header > * {
 }
 
 .cards {
-    display: grid;
-    list-style-type: none;
+    display: block;
     padding: 10px;
-    margin: 0;
-    grid-template-columns: 1fr 1fr 1fr;
-    row-gap: 10px;
-    column-gap: 10px;
-}
-
-.cards:nth-child(5) {
-    grid-column: span 2;
 }
 
 .cards > * {
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
     flex-direction: column;
     padding: 10px;
+    margin: 10px;
     border-radius: 5px;
     background-color: var(--thistle);
 }
@@ -79,6 +71,34 @@ img {
 
 .light-text {
     color: #e5e9ecff;
+}
+
+@media (min-width: 400px) {
+    .cards {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 730px) {
+    .cards {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    header {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1000px) {
+    .cards {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (min-width: 1200px) {
+    .cards {
+        grid-template-columns: repeat(5, 1fr);
+    }
 }
 
 /*

@@ -24,9 +24,34 @@ let cards_data = [
         description: 'Душевная комедия про сироту и его приёмного отца, который половину фильма хочет вернуть мальчика органам опеки',
         image: 'movies/wild.jpg'
     },
+    {
+        title: 'Мальчик',
+        description: 'Мальчик проводит время с вернувшимся из тюрьмы отцом, постепенно осознавая, что он не герой',
+        image: 'movies/boy.jpg'
+    },
+    {
+        title: 'Кролик Джоджо',
+        description: 'Лучший воображаемый друг - Гитлер, мама прячет дома еврейку и другие проблемы в десять лет',
+        image: 'movies/jojo.jpg'
+    },
+    {
+        title: 'Реальные упыри',
+        description: 'Они реально упыри (съёмочная группа пострадает)',
+        image: 'movies/wwdits.jpg'
+    },
+    {
+        title: 'Тор: Рагнарёк',
+        description: 'Тор теряет отца и себя, зато находит сестру, которая хочет его убить',
+        image: 'movies/thor.jpg'
+    },
+    {
+        title: 'Охота на дикарей',
+        description: 'Душевная комедия про сироту и его приёмного отца, который половину фильма хочет вернуть мальчика органам опеки',
+        image: 'movies/wild.jpg'
+    },
 ]
 
-let createEl = function(tag, className, text) {
+let createEl = (tag, className, text) => {
     let element = document.createElement(tag);
     if (className) {
         element.classList.add(className);
@@ -37,8 +62,8 @@ let createEl = function(tag, className, text) {
     return element;
 }
 
-let createCard = function(data) {
-    let card = createEl('li');
+let createCard = (data) => {
+    let card = createEl('div');
 
     let title = createEl('p', 'title', data.title);
     let desc = createEl('p', 'description', data.description);
@@ -49,6 +74,8 @@ let createCard = function(data) {
     card.appendChild(title);
     card.appendChild(img);
     card.appendChild(desc);
+
+    card.classList.add("card");
 
     return card;
 }
@@ -62,13 +89,13 @@ for (let card of cards_data) {
 }
 
 for (let button of buttons) {
-    button.onmouseover = function() {
+    button.onmouseover = () => {
         button.classList.add("dark-text");
     }
-    button.onmouseout = function() {
+    button.onmouseout = () => {
         button.classList.remove("dark-text");
     }
-    button.onclick = function() {
+    button.onclick = () => {
         if (button == movies_button) {
             cards_list.style.display = 'grid';
         }
@@ -79,13 +106,13 @@ for (let button of buttons) {
     }
 }
 
-let cards = cards_list.querySelectorAll('li');
+let cards = cards_list.querySelectorAll('.card');
 
 for (let card of cards) {
-    card.onmouseover = function() {
+    card.onmouseover = () => {
         card.classList.add("light-back");
     }
-    card.onmouseout = function() {
+    card.onmouseout = () => {
         card.classList.remove("light-back");
     }
 }
