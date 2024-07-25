@@ -1,15 +1,19 @@
 :root {
-    --azure-web: #eafdf8ff;
-    --antiflash-white: #e5e9ecff;
-    --thistle: #ddcad9ff;
-    --pink-lavender: #d1b1cbff;
-    --electric-purple: #af45edff;
-    --dark: rgb(31, 4, 47);
+    --text: #300548;
+    --background: #fef5fe;
+    --primary: #f6ccff;
+    --secondary: #ffe072;
+    --accent: #ffb117;
+    --primary-shade: #c943e7;
+    --text-dim: #3f2b4a;
 }
 
 html {
-    background-color: var(--electric-purple);
-    font-family: "Montserrat", "Helvetica Neue", sans-serif;
+    background-color: var(--background);
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 400;
+    color: var(--text);
+    scrollbar-gutter: stable;
 }
 
 body {
@@ -19,37 +23,50 @@ body {
 p {
     margin: 10px;
     padding: 5px;
-    color: var(--dark);
+    text-align: center;
+}
+
+.description {
+    color: var(--text-dim);
 }
 
 header {
-    display: grid;
+    display: flex;
     width: 100%;
-    grid-template-columns: 1fr;
-    row-gap: 5px;
-    background-color: var(--dark);
-    color: var(--thistle);
+    color: var(--text);
+    font-size: 1.25rem;
     padding: 10px;
-}
-
-header > * {
-    margin-left: auto;
-    margin-right: auto;
+    align-items: center;
+    * {
+        flex-grow: 1;
+        padding: 10px 15px;
+    }
+    *:hover {
+        background-color: var(--secondary);
+    }
 }
 
 .cards {
     display: block;
-    padding: 10px;
+    padding: 5px 60px;
 }
 
 .cards > * {
     display: flex;
     align-items: center;
     flex-direction: column;
+    gap: 7px;
     padding: 10px;
-    margin: 10px;
+    margin: 20px;
     border-radius: 5px;
-    background-color: var(--thistle);
+    background-color: var(--primary);
+}
+
+.cards > *:hover {
+    background-color: var(--primary-shade);
+    .description, .title {
+        color: var(--background);
+    }
 }
 
 img {
@@ -58,19 +75,7 @@ img {
 }
 
 .title {
-    font-size: 1.2rem;
-}
-
-.light-back {
-    background-color: #e5e9ecff;
-}
-
-.dark-text {
-    color: #af45edff;
-}
-
-.light-text {
-    color: #e5e9ecff;
+    font-size: 1.6em;
 }
 
 @media (min-width: 400px) {
@@ -82,29 +87,18 @@ img {
 
 @media (min-width: 730px) {
     .cards {
-        grid-template-columns: repeat(3, 1fr);
-    }
-    header {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (min-width: 1000px) {
     .cards {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
 @media (min-width: 1200px) {
     .cards {
-        grid-template-columns: repeat(5, 1fr);
+        grid-template-columns: repeat(4, 1fr);
     }
 }
-
-/*
-    --azure-web: #eafdf8ff;
-    --antiflash-white: ;
-    --thistle: #ddcad9ff;
-    --pink-lavender: #d1b1cbff;
-    --electric-purple: ;
-*/

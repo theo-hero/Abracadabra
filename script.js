@@ -89,18 +89,11 @@ for (let card of cards_data) {
 }
 
 for (let button of buttons) {
-    button.onmouseover = () => {
-        button.classList.add("dark-text");
-    }
-    button.onmouseout = () => {
-        button.classList.remove("dark-text");
-    }
     button.onclick = () => {
         if (button == movies_button) {
             cards_list.style.display = 'grid';
         }
         else {
-            console.log(button);
             cards_list.style.display = 'none';
         }
     }
