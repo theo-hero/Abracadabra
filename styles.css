@@ -6,6 +6,8 @@
     --accent: #ffb117;
     --primary-shade: #c943e7;
     --text-dim: #3f2b4a;
+
+    --transition-speed: 0.2s;
 }
 
 html {
@@ -38,10 +40,13 @@ header {
     align-items: center;
     * {
         flex-grow: 1;
+        text-align: center;
         padding: 10px 15px;
+        transition: var(--transition-speed);
     }
     *:hover {
         background-color: var(--secondary);
+        box-shadow:0px 0px 0px 1px var(--text) inset;
     }
 }
 
@@ -54,17 +59,22 @@ header {
     display: flex;
     align-items: center;
     flex-direction: column;
+    box-sizing: border-box;
     gap: 7px;
     padding: 10px;
     margin: 20px;
     border-radius: 5px;
     background-color: var(--primary);
+    transition: var(--transition-speed);
 }
 
 .cards > *:hover {
     background-color: var(--primary-shade);
     .description, .title {
         color: var(--background);
+    }
+    img {
+        box-shadow: 0px 0px 0px 2px var(--background);
     }
 }
 

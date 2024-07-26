@@ -98,3 +98,8 @@
         transform: translateZ(20px) rotateY(-5deg);
     }
 }
+
+/* remove when experimenting */
+.funelem {
+    display: none;
+}
