@@ -80,32 +80,10 @@ let createCard = (data) => {
     return card;
 }
 
-let buttons = document.querySelectorAll(".button");
 let cards_list = document.querySelector(".cards");
-let movies_button = document.getElementById('movies-button');
 
 for (let card of cards_data) {
     cards_list.appendChild(createCard(card));
 }
 
-for (let button of buttons) {
-    button.onclick = () => {
-        if (button == movies_button) {
-            cards_list.style.display = 'grid';
-        }
-        else {
-            cards_list.style.display = 'none';
-        }
-    }
-}
-
 let cards = cards_list.querySelectorAll('.card');
-
-for (let card of cards) {
-    card.onmouseover = () => {
-        card.classList.add("light-back");
-    }
-    card.onmouseout = () => {
-        card.classList.remove("light-back");
-    }
-}

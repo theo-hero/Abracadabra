@@ -1,0 +1,100 @@
+:root {
+    --text: #300548;
+    --background: #fef5fe;
+    --primary: #f6ccff;
+    --secondary: #ffe072;
+    --accent: #ffb117;
+    --primary-shade: #c943e7;
+    --text-dim: #3f2b4a;
+    counter-reset: headings;
+}
+
+.funelem:not(:empty) {
+    border-top: var(--secondary) solid 2px;
+    padding: 20px;
+}
+
+.elem {
+    padding: 10px;
+    margin: 20px;
+    width: 300px;
+    border-radius: 5px;
+    background-color: var(--primary);
+    overflow: hidden;
+}
+
+.first > .elem:hover {
+    resize: both;
+}
+
+.second {
+    background: no-repeat url('./background.avif');
+    .elem {
+        background-color: rgba(255, 255, 255, 0.2);
+        color: white;
+        backdrop-filter: blur(10px);
+        border: rgba(255, 255, 255, 0.7) solid 1px;
+    }
+}
+
+.third:has(option[value='dark']:checked) {
+    background-color: #3f2b4a;
+    color: white;
+    select {
+        color: white;
+        background-color: #9d1fb9;
+    }
+}
+
+.fourth {
+    font-size: 300%;
+    font-weight: 600;
+    .elem {
+        background: linear-gradient(to right, #9d1fb9, #ffb117);
+        background-clip: text;
+        color: transparent;
+    }
+}
+
+.fifth {
+    h1 {
+        counter-increment: headings;
+    }
+    h1::before {
+        content: counter(headings);
+        padding: 7px 13px;
+        margin-right: 10px;
+        background-color: #c943e7;
+        color: #fef5fe;
+    }
+}
+
+.sixth {
+    display: flex;
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+    .elem {
+        transition: .5s;
+        background-color: var(--text);
+    }
+    .elem:hover {
+        background-color: #f6ccff;
+        transform: translateZ(100px);
+    }
+    .elem:hover + * {
+        background-color: #bc58d3;
+        transform: translateZ(50px) rotateY(20deg);
+    }
+    .elem:hover + * + *{
+        background-color: #8315be;
+        transform: translateZ(20px) rotateY(5deg);
+    }
+    .elem:has(+ *:hover) {
+        background-color: #bc58d3;
+        transform: translateZ(50px) rotateY(-20deg);
+    }
+    .elem:has(+ * + *:hover) {
+        background-color: #8315be;
+        transform: translateZ(20px) rotateY(-5deg);
+    }
+}
